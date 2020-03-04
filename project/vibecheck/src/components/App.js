@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import "./../styles/test.scss";
 
 class App extends Component {
   constructor(props) {
