@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import "./../styles/test.scss";
+import "./../styles/styles.scss";
 
 class App extends Component {
   constructor(props) {
@@ -12,9 +12,7 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log("mounted");
-  }
+  componentDidMount() {}
 
   render() {
     return <h1>Hello World</h1>;
