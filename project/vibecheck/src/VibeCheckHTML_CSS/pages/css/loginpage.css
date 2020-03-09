@@ -1,0 +1,194 @@
+body {
+	margin: 0;
+	padding: 10px;
+	background-color: #ffffff;
+	background-size: cover;
+	background-position: center;
+	font-family: sans-serif;
+}
+
+::placeholder{
+	color: black;
+}
+
+.topborder{
+	width: 110%;
+	height: 10%;
+	background: #eb8f34;
+	position: absolute;
+	top: 0%;
+	left:-10px;
+}
+
+.logo {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: -10px;
+	left: -10px;
+}
+
+div {
+	overflow-x: hidden;
+	overflow-y: hidden;
+	position: fixed;
+}
+.loginbox{
+	max-width: 100%;
+	height: auto;
+	background: #808080;
+	color: #fff;
+	top: 50%;
+	left: 80%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	box-sizing: border-box;
+	padding: 70px 30px;
+}
+
+.change {
+	color: #000;
+}
+.signupbox{
+	width: 30%;
+	height: auto;
+	background: #808080;
+	color: #fff;
+	top: 55%;
+	left: 20%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	box-sizing: border-box;
+	padding: 40px 30px;
+}
+h1{
+	margin: 0;
+	padding: 0 0 20px;
+	text-align: center;
+	font-size: 22px:
+}
+
+
+.loginbox input{
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.loginbox input[type="text"] {
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #fff;
+}
+
+.loginbox input[type="password"] {
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #fff;
+}
+
+.loginbox input[type="submit"] {
+	border: none;
+	outline: none;
+	height: 40px;
+	background: #eb8f34;
+	color: #000;
+	font-size: 18px;
+}
+
+.loginbox input[type="submit"]:hover{
+	cursor: pointer;
+	background: #ffc107;
+	color: #000;
+}
+
+.loginbox a{
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 20px;
+	color: #000;
+}
+
+.loginbox a:hover{
+	color: #ffc107;
+}
+
+
+.signupbox input{
+	width: 90%;
+	margin-bottom: 20px;
+	align-items: center;
+}
+
+.signupbox input[type="text"], [name="FirstName"] {
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	color: #fff;
+}
+
+.signupbox input[type="text"], [name="LastName"] {
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	color: #fff;
+	height: 40px;
+}
+
+.signupbox input[type="text"], [name="Email"] {
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	color: #fff;
+	height: 40px;
+}
+
+.signupbox input[type="password"], [name="Password"] {
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	color: #fff;
+	height: 40px;
+}
+
+.signupbox input[type="password"], [name="ConfirmPassword"] {
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	color: #fff;
+	height: 40px;
+}
+
+.signupbox input[type="submit"] {
+	border: none;
+	outline: none;
+	height: 40px;
+	background: #eb8f34;
+	color: #000;
+	font-size: 18px;
+}
+
+.signupbox input[type="submit"]:hover{
+	cursor: pointer;
+	background: #ffc107;
+	color: #000;
+}
+
+
+
+
+
+
+
+
+
