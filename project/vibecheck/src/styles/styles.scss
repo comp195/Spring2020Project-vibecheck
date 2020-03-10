@@ -1,0 +1,235 @@
+@import "theme";
+
+body {
+  margin: 0;
+  background-color: $background-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $text-color;
+}
+
+p {
+  color: $text-color;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+nav {
+  background-color: $primary-color;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav .brand {
+  color: $text-color;
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 60px;
+  padding-left: 10px;
+  align-self: flex-start;
+}
+
+nav .icons {
+  line-height: 60px;
+  align-self: flex-end;
+  padding-right: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+nav li {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 0 10px;
+  font-size: 2em;
+}
+
+div .search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+}
+
+div .side-nav-links,
+div .new-post,
+div .post,
+div .recommendations,
+div .trends {
+  border: 2px solid $text-color;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+div .side-nav,
+div .new-post,
+div .post,
+div .recommendations,
+div .trends {
+  margin: 10px;
+  width: fit-content;
+  align-self: center;
+}
+
+div .side-nav-links {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: $text-color;
+    font-size: 1.5em;
+    font-weight: bold;
+
+    li {
+      margin-bottom: 0.8em;
+    }
+
+    i {
+      margin-right: 1em;
+    }
+  }
+
+  .show-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
+
+
+div .new-post {
+  width: 100%;
+  margin-bottom: 3em;
+
+  .profile-picture {
+    flex: 0;
+    font-size: 3em;
+    margin-right: 10px;
+  }
+
+  textarea {
+    min-height: 4em;
+    margin-bottom: 0.5em;
+  }
+
+  .multi-media {
+    margin-left: 3em;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  li {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 0 10px;
+  }
+}
+
+div .post {
+  min-height: 200px;
+  width: 100%;
+
+  .profile-picture {
+    flex: 0;
+    font-size: 3em;
+    margin-right: 10px;
+  }
+
+  .post-content {
+    width: 100%;
+  }
+}
+
+div .recommendations {
+
+  padding: 0;
+
+  .title,
+  .profile,
+  .show-more {
+    padding: 15px;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid $text-color;
+  }
+
+  .recommendation {
+    font-size: 1.3em;
+    padding: 0.3em 0;
+  }
+
+  i {
+    margin-right: 1em;
+  }
+
+  .show-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
+
+div .trends {
+
+  padding: 0;
+
+  .title,
+  .trend,
+  .show-more {
+    padding: 15px;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+  }
+
+  .trend {
+    font-size: 1.3em;
+    padding: 0.3em 0;
+    border-top: 1px solid $text-color;
+    height: 30px;
+  }
+
+  .show-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
