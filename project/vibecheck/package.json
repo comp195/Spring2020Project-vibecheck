@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development ./src/index.js --output ./",
+    "dev": "webpack --mode development ./src/index.js --output ./static/vibecheck/main.js",
     "build": "webpack --mode production ./src/index.js --output ./static/vibecheck/main.js",
-    "dev-django": "webpack --mode development ./src/index.js --output ./static/vibecheck/main.js",
     "dev-server": "webpack-dev-server"
   },
   "keywords": [],
