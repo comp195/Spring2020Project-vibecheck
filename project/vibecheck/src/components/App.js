@@ -12,10 +12,47 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    fetch("api/post/")
+      .then(response => {
+        if (response.status > 400) {
+          return this.setState(() => {
+            return { placeholder: "Something went wrong!" };
+          });
+        }
+        return response.json();
+      })
+      .then(data => {
+        this.setState(() => {
+          return {
+            data,
+            loaded: true
+          };
+        });
+      });
+  }
 
   render() {
-    return;
+    return (
+      this.state.data.map(post => {
+        return (
+          <div className="post">
+            <div className="row">
+              <div className="profile-picture column">
+                <img src={post.profile.avatar_url} alt="avatar" />
+              </div>
+              <div className="column">
+                {post.profile.display_name}
+                <br />{post.date}
+              </div>
+            </div>
+            <div className="post-content">
+              {post.content}
+            </div>
+          </div>
+        );
+      })
+    );
   }
 }
 

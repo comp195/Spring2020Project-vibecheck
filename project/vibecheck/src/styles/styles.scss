@@ -164,8 +164,11 @@ div .post {
 
   .profile-picture {
     flex: 0;
-    font-size: 3em;
     margin-right: 10px;
+
+    img {
+      width: 4em;
+    }
   }
 
   .post-content {
