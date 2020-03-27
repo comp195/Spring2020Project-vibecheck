@@ -57,9 +57,9 @@ class App extends Component {
         post: {
           ...this.state.post,
           content: ""
-        }
+        },
+        posts: this.state.posts.concat(post)
       })
-      this.state.posts.concat(post);
     });
   }
 
