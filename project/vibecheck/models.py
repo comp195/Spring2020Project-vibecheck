@@ -15,9 +15,6 @@ class Profile(models.Model):
     display_name = models.CharField(max_length=50)
     avatar_url = models.TextField(null=True, blank=True)
     friends = models.CharField(max_length=100, validators=[int_list_validator], null=True, blank=True)
-    posts = models.CharField(max_length=100, validators=[int_list_validator], null=True, blank=True)
-    story = models.CharField(max_length=100, validators=[int_list_validator], null=True, blank=True)
-    audio_player = models.IntegerField(null=True, blank=True)
 
 
 class Post(models.Model):
@@ -28,11 +25,11 @@ class Post(models.Model):
     content = models.TextField(null=True, blank=True)
     multi_media = models.TextField(null=True, blank=True)
     tags = models.TextField(null=True, blank=True)
-    comments = models.CharField(max_length=100, validators=[int_list_validator], null=True, blank=True)
 
 
 class Comment(models.Model):
     comment_id = models.AutoField(primary_key=True)
+    post_id = models.IntegerField()
     date = models.DateTimeField()
     profile_id = models.IntegerField()
     content = models.TextField()
@@ -40,6 +37,7 @@ class Comment(models.Model):
 
 class Story(models.Model):
     story_id = models.AutoField(primary_key=True)
+    profile_id = models.IntegerField()
     date = models.DateTimeField()
     content = models.TextField()
     multi_media = models.TextField()
