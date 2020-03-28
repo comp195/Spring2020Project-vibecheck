@@ -8,16 +8,6 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
-          options: {
-            presets: [
-              "@babel/preset-env",
-              {
-                plugins: [
-                  "@babel/plugin-proposal-class-properties"
-                ]
-              }
-            ]
-          }
         }
       },
       {
@@ -25,11 +15,5 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"]
       }
     ]
-  },
-  devServer: {
-    host: "127.0.0.1",
-    port: "3000",
-    hot: true,
-    contentBase: path.join(__dirname, "dist")
   }
 };
