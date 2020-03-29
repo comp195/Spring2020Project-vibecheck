@@ -159,10 +159,9 @@ div .new-post {
 }
 
 div .post {
-  min-height: 200px;
   width: 100%;
 
-  .profile-picture {
+  .post-avatar {
     flex: 0;
     margin-right: 10px;
 
@@ -171,13 +170,22 @@ div .post {
     }
   }
 
+  .post-display-name {
+    font-weight: bold;
+  }
+
+  .post-date {
+    font-size: 0.9em;
+  }
+
   .post-content {
     width: 100%;
+    padding-top: 5px;
   }
 }
 
 div .recommendations {
-
+  min-width: 200px;
   padding: 0;
 
   .title,
@@ -209,7 +217,7 @@ div .recommendations {
 }
 
 div .trends {
-
+  min-width: 200px;
   padding: 0;
 
   .title,
