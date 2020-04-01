@@ -15,7 +15,7 @@ class Feed extends Component {
     }
 
     componentDidMount() {
-        fetch("api/post/")
+        fetch("api/posts/")
             .then(response => {
                 return response.json();
             })
@@ -29,7 +29,7 @@ class Feed extends Component {
     }
 
     handlePostSubmit = () => {
-        fetch("api/post/", {
+        fetch("api/posts/", {
             method: "POST",
             headers: {
                 "Accept": "application/json",

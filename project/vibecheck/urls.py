@@ -3,9 +3,9 @@ from . import views
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register('user', views.UserView)
-router.register('profile', views.ProfileView)
-router.register('post', views.PostView)
+router.register('users', views.UserView)
+router.register('profiles', views.ProfileView)
+router.register('posts', views.PostView)
 
 
 urlpatterns = [
