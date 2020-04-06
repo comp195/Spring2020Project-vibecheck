@@ -9,6 +9,7 @@ class Form extends Component {
     }
 
     static propTypes = {
+        profile: PropTypes.object.isRequired,
         addPost: PropTypes.func.isRequired
     }
 
@@ -22,7 +23,7 @@ class Form extends Component {
         e.preventDefault();
         const { content } = this.state;
         const post = {
-            profile_id: 1,
+            profile: this.props.profile.id,
             content: content
         }
         this.props.addPost(post);
@@ -63,5 +64,8 @@ class Form extends Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+    profile: state.auth.user.profile,
+});
 
-export default connect(null, { addPost })(Form);
+export default connect(mapStateToProps, { addPost })(Form);

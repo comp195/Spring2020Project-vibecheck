@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getPosts } from "../../actions/posts";
@@ -17,15 +17,21 @@ class Feed extends Component {
 
     render() {
         return (
-            <div className="feed">
-                <Form />
-                {this.props.posts.map(post => {
-                    return (
-                        <Post post={post} />
-                    );
-                })
-                }
-            </div>
+            <Fragment>
+                <div className="search">
+                    <i className="fas fa-search"></i>
+                    <input type="search" />
+                </div>
+                <div className="feed">
+                    <Form />
+                    {this.props.posts.map(post => {
+                        return (
+                            <Post post={post} />
+                        );
+                    })
+                    }
+                </div>
+            </Fragment>
         );
     }
 }

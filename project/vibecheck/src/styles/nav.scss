@@ -1,0 +1,44 @@
+@import "theme";
+
+nav {
+    background-color: $primary-color;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .brand {
+    color: $text-color;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 60px;
+    padding-left: 10px;
+    align-self: flex-start;
+
+    img {
+        height: 50px;
+        padding-top: 5px;
+    }
+}
+
+nav .icons {
+    line-height: 60px;
+    align-self: flex-end;
+    padding-right: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 0 10px;
+    font-size: 2em;
+}

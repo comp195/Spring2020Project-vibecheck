@@ -1,19 +1,32 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import PrivateRoute from "./common/PrivateRoute";
 
 import { Provider } from "react-redux";
 import store from "../store";
+import { loadUser } from '../actions/auth';
 
-import Feed from "./feed/Feed";
-
-import "./../styles/styles.scss";
+import Login from "./login/Login";
+import ProfileHome from "./profile-home/ProfileHome";
 
 class App extends Component {
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
 
   render() {
     return (
       <Provider store={store}>
-        <Feed />
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/feed" />
+            </Route>
+            <PrivateRoute exact path="/feed" component={ProfileHome} />
+            <Route exact path="/login" component={Login} />
+          </Switch>
+        </Router>
       </Provider>
     );
   }
