@@ -60,15 +60,17 @@ div .side-nav-links {
   }
 }
 
-
 div .new-post {
   width: 100%;
   margin-bottom: 3em;
 
   .profile-picture {
     flex: 0;
-    font-size: 3em;
     margin-right: 10px;
+
+    img {
+      width: 4em;
+    }
   }
 
   textarea {
@@ -77,7 +79,7 @@ div .new-post {
   }
 
   .multi-media {
-    margin-left: 3em;
+    margin-left: 4em;
   }
 
   ul {

@@ -7,7 +7,7 @@ class Profile(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, related_name="profile", on_delete=models.CASCADE)
     display_name = models.CharField(max_length=50)
-    avatar_url = models.TextField(null=True, blank=True)
+    avatar_url = models.TextField(default="/static/vibecheck/img/default-avatar.png")
 
 
 class Post(models.Model):
