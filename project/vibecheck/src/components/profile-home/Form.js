@@ -49,13 +49,7 @@ class Form extends Component {
               ></textarea>
             </div>
             <div className="row">
-              <div className="multi-media column">
-                <ul>
-                  <li>
-                    <i className="fas fa-image"></i>
-                  </li>
-                </ul>
-              </div>
+              <div className="multi-media column"></div>
               <div className="column">
                 <button type="submit">
                   <i className="fas fa-check"></i>
