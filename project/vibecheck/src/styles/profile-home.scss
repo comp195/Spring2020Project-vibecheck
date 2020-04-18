@@ -105,6 +105,8 @@ div .new-post {
     outline: none;
     border: none;
     resize: vertical;
+    font-family: sans-serif;
+    font-size: 1em;
   }
 
   .multi-media {
@@ -162,11 +164,13 @@ div .post {
 
   .post-date {
     font-size: 0.9em;
+    color: #666;
   }
 
   .post-content {
     width: 100%;
     padding-top: 5px;
+    font-size: 1em;
   }
 }
 
