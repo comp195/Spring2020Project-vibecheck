@@ -12,7 +12,7 @@ class ProfileHome extends Component {
     return (
       <Fragment>
         <Nav />
-        <div className="container">
+        <div className="profile-home-container">
           <div className="row">
             <div className="column">
               <SideNav />

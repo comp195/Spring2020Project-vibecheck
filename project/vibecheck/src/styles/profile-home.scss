@@ -7,11 +7,32 @@ body {
   font-family: sans-serif;
 }
 
+div .profile-home-container {
+  margin-top: 1em;
+}
+
 div .search {
   width: 100%;
   display: flex;
-  justify-content: center;
-  margin: 1em 0;
+  justify-content: left;
+  margin: 1em 15px;
+  border: 2px solid $text-color;
+  border-radius: 10px;
+  padding: 10px;
+
+  input[type="search"] {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: $text-color;
+    margin-left: 6px;
+    font-size: 20px;
+  }
+
+  i {
+    font-size: 22px;
+  }
 }
 
 div .side-nav-links,
@@ -32,6 +53,10 @@ div .trends {
   margin: 10px;
   width: fit-content;
   align-self: center;
+}
+
+div .side-nav {
+  margin-top: 3em;
 }
 
 div .side-nav-links {
@@ -76,10 +101,14 @@ div .new-post {
   textarea {
     min-height: 4em;
     margin-bottom: 0.5em;
+    background: transparent;
+    outline: none;
+    border: none;
   }
 
   .multi-media {
     margin-left: 4.1em;
+    font-size: 1.2em;
   }
 
   ul {
@@ -94,6 +123,23 @@ div .new-post {
     display: block;
     text-align: center;
     padding: 0 10px;
+  }
+
+  button {
+    align-self: flex-end;
+    border: 1px solid $text-color;
+    border-radius: 10px;
+    outline: none;
+    height: 30px;
+    width: 120px;
+    background: $primary-color;
+    color: #333;
+    font-size: 1.5em;
+
+    &:hover {
+      cursor: pointer;
+      background: #eb7d34;
+    }
   }
 }
 
@@ -126,6 +172,7 @@ div .post {
 div .recommendations {
   min-width: 200px;
   padding: 0;
+  margin-top: 4em;
 
   .title,
   .profile,

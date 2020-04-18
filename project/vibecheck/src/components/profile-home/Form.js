@@ -56,8 +56,10 @@ class Form extends Component {
                   </li>
                 </ul>
               </div>
-              <div className="submit column">
-                <input type="submit" value="Check" />
+              <div className="column">
+                <button type="submit">
+                  <i className="fas fa-check"></i>
+                </button>
               </div>
             </div>
           </div>

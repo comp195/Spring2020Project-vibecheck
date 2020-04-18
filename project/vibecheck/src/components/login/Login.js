@@ -63,7 +63,7 @@ class Login extends Component {
     return (
       <Fragment>
         <Nav />
-        <div className="container">
+        <div className="login-container">
           <div className="row">
             <div className="column">
               <div className="signup">
