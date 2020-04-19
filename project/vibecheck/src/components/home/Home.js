@@ -5,14 +5,14 @@ import Feed from "./Feed";
 import Recommendations from "./Recommendations";
 import Trends from "./Trends";
 
-import "./../../styles/profile-home.scss";
+import "./../../styles/home.scss";
 
-class ProfileHome extends Component {
+class Home extends Component {
   render() {
     return (
       <Fragment>
         <Nav />
-        <div className="profile-home-container">
+        <div className="home-container">
           <div className="row">
             <div className="column">
               <SideNav />
@@ -31,4 +31,4 @@ class ProfileHome extends Component {
   }
 }
 
-export default ProfileHome;
+export default Home;

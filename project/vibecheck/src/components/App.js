@@ -8,7 +8,7 @@ import store from "../store";
 import { loadUser } from '../actions/auth';
 
 import Login from "./login/Login";
-import ProfileHome from "./profile-home/ProfileHome";
+import Home from "./home/Home";
 
 class App extends Component {
   componentDidMount() {
@@ -23,7 +23,7 @@ class App extends Component {
             <Route exact path="/">
               <Redirect to="/feed" />
             </Route>
-            <PrivateRoute exact path="/feed" component={ProfileHome} />
+            <PrivateRoute exact path="/feed" component={Home} />
             <Route exact path="/login" component={Login} />
           </Switch>
         </Router>
