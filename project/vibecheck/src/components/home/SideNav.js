@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class SideNav extends Component {
   render() {
@@ -8,7 +9,9 @@ class SideNav extends Component {
         <div className="side-nav-links">
           <ul>
             <li>
-              <i className="fas fa-user"></i> Profile
+              <Link to="/profile">
+                <i className="fas fa-user"></i> Profile
+              </Link>
             </li>
             <li>
               <i className="fas fa-envelope"></i> Messages

@@ -8,74 +8,76 @@ body {
 }
 
 div .login-container {
-  margin-top: 10%;
-}
+  max-width: 1280px;
+  margin: 10% auto 0 auto;
 
-div .login,
-div .signup {
-  align-self: center;
-  min-width: 200px;
-  background: #666;
+  div .login,
+  div .signup {
+    align-self: center;
+    min-width: 200px;
+    background: #666;
 
-  h1 {
-    color: $background-color;
-    margin: 0;
-    padding: 0 0 20px;
-    text-align: center;
-    font-size: 22px;
-  }
-
-  input {
-    width: 100%;
-    margin-bottom: 20px;
-
-    &::placeholder {
-      color: #333;
-    }
-
-    &[type="text"],
-    &[type="password"],
-    &[type="email"] {
-      border: none;
-      border-bottom: 1px solid $background-color;
-      background: transparent;
-      outline: none;
-      height: 40px;
+    h1 {
       color: $background-color;
+      margin: 0;
+      padding: 0 0 20px;
+      text-align: center;
+      font-size: 22px;
     }
 
-    &[type="submit"] {
-      border: none;
-      outline: none;
-      height: 40px;
-      background: $primary-color;
-      color: #333;
-      font-size: 18px;
+    input {
+      width: 100%;
+      margin-bottom: 20px;
 
-      &:hover {
-        cursor: pointer;
-        background: #eb7d34;
+      &::placeholder {
+        color: #333;
+      }
+
+      &[type="text"],
+      &[type="password"],
+      &[type="email"] {
+        border: none;
+        border-bottom: 1px solid $background-color;
+        background: transparent;
+        outline: none;
+        height: 40px;
+        color: $background-color;
+      }
+
+      &[type="submit"] {
+        border: none;
+        outline: none;
+        height: 40px;
+        background: $primary-color;
+        color: #333;
+        font-size: 18px;
+
+        &:hover {
+          cursor: pointer;
+          background: #eb7d34;
+        }
       }
     }
   }
-}
 
-div .login {
-  padding: 70px 30px;
+  div .login {
+    padding: 70px 30px;
+    width: 280px;
 
-  a {
-    text-decoration: none;
-    font-size: 12px;
-    line-height: 20px;
-    color: #333;
+    a {
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 20px;
+      color: #333;
 
-    &:hover {
-      color: $primary-color;
+      &:hover {
+        color: $primary-color;
+      }
     }
   }
-}
 
-div .signup {
-  width: 350px;
-  padding: 50px 40px;
+  div .signup {
+    width: 350px;
+    padding: 50px 40px;
+  }
 }

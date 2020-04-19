@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
@@ -16,16 +17,19 @@ class Nav extends Component {
       <div className="icons">
         <ul>
           <li>
-            <i className="fas fa-envelope"></i>
+            <Link to="/profile">
+              <i className="fas fa-user" />
+            </Link>
           </li>
           <li>
-            <i className="fas fa-bell"></i>
+            <Link to="/feed">
+              <i className="fas fa-home" />
+            </Link>
           </li>
           <li>
-            <i className="fas fa-user"></i>
-          </li>
-          <li>
-            <i className="fas fa-sign-out-alt" onClick={this.props.logout}></i>
+            <Link to="#logout">
+              <i className="fas fa-sign-out-alt" onClick={this.props.logout} />
+            </Link>
           </li>
         </ul>
       </div>
