@@ -12,7 +12,6 @@ export const updateProfile = (profile) => (dispatch) => {
       return response.json();
     })
     .then((profile) => {
-      console.log(profile);
       dispatch({
         type: UPDATE_PROFILE,
         payload: profile,

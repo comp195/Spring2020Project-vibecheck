@@ -21,13 +21,24 @@ div .profile-container {
 
     .avatar,
     .name,
-    .bio,
+    .description,
     .birthday,
     .location,
     .joined {
-      margin-bottom: 1em;
       display: flex;
       justify-content: center;
+    }
+
+    .avatar,
+    .name,
+    .description,
+    .joined {
+      margin-bottom: 1em;
+    }
+
+    .birthday,
+    .location {
+      margin-bottom: 0.5em;
     }
 
     .edit {

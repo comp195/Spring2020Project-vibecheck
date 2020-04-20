@@ -61,8 +61,7 @@ class Bio extends Component {
         <div className="row edit">
           <Link to="/profile/edit">Edit Profile</Link>
         </div>
-        <div className="row bio">
-          <div className="column">Bio</div>
+        <div className="row description">
           <div className="column">{this.props.profile.description}</div>
         </div>
         <div className="row birthday">

@@ -55,7 +55,7 @@ class Editor extends Component {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="column label">Bio</div>
+                  <div className="column label">Description</div>
                   <div className="column">
                     <textarea
                       value={this.state.profile.description}
