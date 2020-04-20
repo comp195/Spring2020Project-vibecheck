@@ -15,6 +15,7 @@ import { loadUser } from "../actions/auth";
 import Login from "./login/Login";
 import Home from "./home/Home";
 import Profile from "./profile/Profile";
+import Editor from "./profile/Editor";
 
 class App extends Component {
   componentDidMount() {
@@ -31,6 +32,7 @@ class App extends Component {
             </Route>
             <PrivateRoute exact path="/feed" component={Home} />
             <PrivateRoute exact path="/profile" component={Profile} />
+            <PrivateRoute exact path="/profile/edit" component={Editor} />
             <Route exact path="/login" component={Login} />
           </Switch>
         </Router>

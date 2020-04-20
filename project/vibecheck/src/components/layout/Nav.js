@@ -40,7 +40,7 @@ class Nav extends Component {
     return (
       <nav>
         <div className="brand">
-          <img src="./static/vibecheck/img/brand.png"></img>
+          <img src="/static/vibecheck/img/brand.png"></img>
         </div>
         {this.props.auth.isAuthenticated ? authLinks : guestLinks}
       </nav>

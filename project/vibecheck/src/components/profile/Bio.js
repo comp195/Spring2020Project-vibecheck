@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -22,15 +23,18 @@ class Bio extends Component {
     "December",
   ];
 
-  formatJoinDate = (dateStr) => {
-    let date = new Date(dateStr);
-    return `${this.months[date.getMonth()]} ${date.getFullYear()}`;
+  formatJoinDate = (date) => {
+    date = date.split("-");
+    let year = date[0];
+    let month = parseInt(date[1]) - 1;
+    return `${this.months[month]} ${year}`;
   };
 
-  formatBirthday = (dateStr) => {
-    let date = new Date(dateStr);
+  formatBirthday = (date) => {
+    date = date.split("-");
     let day = "";
-    let i = date.getDate();
+    let month = parseInt(date[1]) - 1;
+    let i = parseInt(date[2]);
     let j = i % 10;
     let k = i % 100;
     if (j == 1 && k != 11) {
@@ -42,7 +46,7 @@ class Bio extends Component {
     } else {
       day = i + "th";
     }
-    return `${this.months[date.getMonth()]} ${day}`;
+    return `${this.months[month]} ${day}`;
   };
 
   render() {
@@ -54,6 +58,9 @@ class Bio extends Component {
           <img src={this.props.profile.avatar_url} alt="avatar" />
         </div>
         <div className="row name">{this.props.profile.display_name}</div>
+        <div className="row edit">
+          <Link to="/profile/edit">Edit Profile</Link>
+        </div>
         <div className="row bio">
           <div className="column">Bio</div>
           <div className="column">{this.props.profile.description}</div>

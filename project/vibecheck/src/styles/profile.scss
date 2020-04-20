@@ -30,8 +30,25 @@ div .profile-container {
       justify-content: center;
     }
 
+    .edit {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1em;
+
+      a {
+        font-size: 0.7em;
+        color: #666;
+        text-decoration: none;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+
     .name {
       font-weight: bold;
+      margin-bottom: 0;
     }
   }
 
@@ -102,6 +119,73 @@ div .profile-container {
       width: 100%;
       padding-top: 5px;
       font-size: 1em;
+    }
+  }
+}
+
+div .profile-editor-container {
+  max-width: 1280px;
+  margin: 1em auto 0 auto;
+
+  .heading {
+    align-self: center;
+    max-width: 600px;
+    width: 600px;
+
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+
+  form {
+    border: 2px solid $text-color;
+    border-radius: 10px;
+    margin-top: 1em;
+    padding: 15px;
+    align-self: center;
+    text-align: end;
+    min-width: 300px;
+    max-width: 600px;
+    width: 600px;
+  }
+
+  .label {
+    font-weight: bolder;
+    padding-right: 2em;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 400px;
+    margin-bottom: 1em;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $text-color;
+    outline: none;
+    font-size: 1em;
+    font-family: sans-serif;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  button {
+    align-self: flex-end;
+    border: 1px solid $text-color;
+    border-radius: 10px;
+    outline: none;
+    height: 30px;
+    width: fit-content;
+    background: $primary-color;
+    color: #333;
+    font-size: 1em;
+    font-weight: bolder;
+
+    &:hover {
+      cursor: pointer;
+      background: #eb7d34;
     }
   }
 }

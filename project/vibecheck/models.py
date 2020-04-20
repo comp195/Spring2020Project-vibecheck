@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.core.validators import int_list_validator
+from django.utils import timezone
 
 
 class Profile(models.Model):
@@ -9,9 +9,9 @@ class Profile(models.Model):
     display_name = models.CharField(max_length=50)
     avatar_url = models.TextField(default="/static/vibecheck/img/default-avatar.png")
     join_date = models.DateTimeField(auto_now_add=True)
-    description = models.TextField(null=True)
-    birthday = models.DateField(null=True)
-    location = models.CharField(max_length=150, null=True)
+    description = models.TextField(blank=True)
+    birthday = models.DateField(default=timezone.now)
+    location = models.CharField(max_length=150, blank=True)
     spotify_uri = models.TextField(default="spotify:playlist:37i9dQZF1DWYBO1MoTDhZI")
 
 
