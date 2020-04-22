@@ -1,6 +1,7 @@
 import { UPDATE_PROFILE } from "./types";
 
 export const updateProfile = (profile) => (dispatch) => {
+  delete profile.posts;
   fetch(`/api/profiles/${profile.id}/`, {
     method: "PUT",
     headers: {

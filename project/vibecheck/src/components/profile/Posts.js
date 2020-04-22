@@ -1,19 +1,14 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getPosts } from "../../actions/posts";
 
 import Post from "../home/Post";
 
 class Posts extends Component {
   static propTypes = {
     posts: PropTypes.array.isRequired,
-    getPosts: PropTypes.func.isRequired,
+    profile: PropTypes.object.isRequired,
   };
-
-  componentDidMount() {
-    this.props.getPosts();
-  }
 
   render() {
     return (
@@ -24,6 +19,7 @@ class Posts extends Component {
         </div>
         <div className="posts">
           {this.props.posts.map((post) => {
+            post.profile = this.props.profile;
             return <Post post={post} />;
           })}
         </div>
@@ -33,7 +29,8 @@ class Posts extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  posts: state.posts.posts,
+  posts: state.auth.user.profile.posts,
+  profile: state.auth.user.profile,
 });
 
-export default connect(mapStateToProps, { getPosts })(Posts);
+export default connect(mapStateToProps)(Posts);

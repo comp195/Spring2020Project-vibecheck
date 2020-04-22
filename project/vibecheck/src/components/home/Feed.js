@@ -6,38 +6,37 @@ import Form from "./Form";
 import Post from "./Post";
 
 class Feed extends Component {
-    static propTypes = {
-        posts: PropTypes.array.isRequired,
-        getPosts: PropTypes.func.isRequired
-    }
+  static propTypes = {
+    user: PropTypes.object.isRequired,
+    posts: PropTypes.array.isRequired,
+    getPosts: PropTypes.func.isRequired,
+  };
 
-    componentDidMount() {
-        this.props.getPosts();
-    }
+  componentDidMount() {
+    this.props.getPosts(this.props.user);
+  }
 
-    render() {
-        return (
-            <Fragment>
-                <div className="search">
-                    <i className="fas fa-search"></i>
-                    <input type="search" />
-                </div>
-                <div className="feed">
-                    <Form />
-                    {this.props.posts.map(post => {
-                        return (
-                            <Post post={post} />
-                        );
-                    })
-                    }
-                </div>
-            </Fragment>
-        );
-    }
+  render() {
+    return (
+      <Fragment>
+        <div className="search">
+          <i className="fas fa-search"></i>
+          <input type="search" />
+        </div>
+        <div className="feed">
+          <Form />
+          {this.props.posts.map((post) => {
+            return <Post post={post} />;
+          })}
+        </div>
+      </Fragment>
+    );
+  }
 }
 
-const mapStateToProps = state => ({
-    posts: state.posts.posts
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+  posts: state.posts.posts,
 });
 
 export default connect(mapStateToProps, { getPosts })(Feed);

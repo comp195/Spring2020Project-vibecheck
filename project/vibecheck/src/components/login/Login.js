@@ -35,7 +35,6 @@ class Login extends Component {
       console.log("passwords do not match");
       return;
     }
-    console.log(this.state);
     const user = {
       username: this.state.registration.email,
       email: this.state.registration.email,
@@ -48,12 +47,18 @@ class Login extends Component {
 
   onLoginSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
     const user = {
       username: this.state.login.email,
       password: this.state.login.password,
     };
     this.props.login(user);
+    this.setState({
+      ...this.state,
+      login: {
+        ...this.state.login,
+        password: "",
+      },
+    });
   };
 
   render() {

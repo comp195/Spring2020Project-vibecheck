@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets, generics, permissions, response
-from .models import User, Profile, Post
-from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, ProfileSerializer, PostSerializer
+from .models import User, Profile, Post, Friendship
+from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, ProfileSerializer, PostSerializer, FriendshipSerializer
 from knox.models import AuthToken
 
 
@@ -57,3 +57,6 @@ class PostView(viewsets.ModelViewSet):
     serializer_class = PostSerializer
 
 
+class FriendshipView(viewsets.ModelViewSet):
+    queryset = Friendship.objects.all()
+    serializer_class = FriendshipSerializer
