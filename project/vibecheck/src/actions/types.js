@@ -9,3 +9,6 @@ export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 export const UPDATE_PROFILE = "UPDATE_PROFILE";
+export const GET_PROFILE = "GET_PROFILE";
+export const ADD_FRIEND = "ADD_FRIEND";
+export const DELETE_FRIEND = "DELETE_FRIEND";

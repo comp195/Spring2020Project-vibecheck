@@ -63,6 +63,46 @@ div .profile-container {
     }
   }
 
+  div .follow,
+  div .unfollow {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+    button {
+      border: 1px solid $text-color;
+      border-radius: 10px;
+      outline: none;
+      height: 30px;
+      width: 120px;
+      background: $primary-color;
+      color: #333;
+      font-size: 1em;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  div .follow button:hover {
+    background: #eb7d34;
+  }
+
+  div .unfollow button {
+    &:hover {
+      background: #eb4034;
+
+      &:before {
+        content: "Unfollow";
+      }
+
+      span {
+        display: none;
+      }
+    }
+  }
+
   div .profile-spotify {
     width: fit-content;
     min-width: 300px;
@@ -119,6 +159,11 @@ div .profile-container {
 
     .post-display-name {
       font-weight: bold;
+
+      a {
+        color: $text-color;
+        text-decoration: none;
+      }
     }
 
     .post-date {

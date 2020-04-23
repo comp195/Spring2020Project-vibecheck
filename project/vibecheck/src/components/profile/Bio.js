@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { addFriend, removeFriend } from "../../actions/friends";
 
 class Bio extends Component {
   static propTypes = {
+    user: PropTypes.object,
     profile: PropTypes.object.isRequired,
   };
 
@@ -49,20 +51,73 @@ class Bio extends Component {
     return `${this.months[month]} ${day}`;
   };
 
+  isOwner = () => {
+    return (
+      this.props.user != null &&
+      this.props.user.profile.id == this.props.profile.id
+    );
+  };
+
+  isFollowing = () => {
+    if (this.isOwner() || this.props.user == null) {
+      return false;
+    }
+    let following = false;
+    this.props.user.friends.forEach((friend) => {
+      if (friend.profile.id == this.props.profile.id) {
+        following = true;
+        return;
+      }
+    });
+    return following;
+  };
+
+  onFollow = () => {
+    this.props.addFriend(this.props.user.id, this.props.profile.user);
+  };
+
+  onUnfollow = () => {
+    this.props.user.friends.forEach((friend) => {
+      if (friend.profile.id == this.props.profile.id) {
+        this.props.removeFriend(friend);
+        return;
+      }
+    });
+  };
+
   render() {
-    let birthday = this.formatBirthday(this.props.profile.birthday);
-    let joined = this.formatJoinDate(this.props.profile.join_date);
+    let profile = this.props.profile;
+    let birthday = this.formatBirthday(profile.birthday);
+    let joined = this.formatJoinDate(profile.join_date);
+
+    let isOwner = this.isOwner();
+    let isFollowing = this.isFollowing();
+    let editProfile = (
+      <div className="row edit">
+        <Link to="/profile/edit">Edit Profile</Link>
+      </div>
+    );
+    let followProfile = (
+      <div className="row follow">
+        <button onClick={this.onFollow}>Follow</button>
+      </div>
+    );
+    let unfollowProfile = (
+      <div className="row unfollow">
+        <button onClick={this.onUnfollow}>
+          <span>Following</span>
+        </button>
+      </div>
+    );
     return (
       <div className="profile-bio">
         <div className="row avatar">
-          <img src={this.props.profile.avatar_url} alt="avatar" />
+          <img src={profile.avatar_url} alt="avatar" />
         </div>
-        <div className="row name">{this.props.profile.display_name}</div>
-        <div className="row edit">
-          <Link to="/profile/edit">Edit Profile</Link>
-        </div>
+        <div className="row name">{profile.display_name}</div>
+        {isOwner ? editProfile : isFollowing ? unfollowProfile : followProfile}
         <div className="row description">
-          <div className="column">{this.props.profile.description}</div>
+          <div className="column">{profile.description}</div>
         </div>
         <div className="row birthday">
           <div className="column">Birthday</div>
@@ -70,7 +125,7 @@ class Bio extends Component {
         </div>
         <div className="row location">
           <div className="column">Location</div>
-          <div className="column">{this.props.profile.location}</div>
+          <div className="column">{profile.location}</div>
         </div>
         <div className="row joined">
           <div className="column">Joined</div>
@@ -82,7 +137,8 @@ class Bio extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  profile: state.auth.user.profile,
+  user: state.auth.user,
+  profile: state.profiles.profile,
 });
 
-export default connect(mapStateToProps)(Bio);
+export default connect(mapStateToProps, { addFriend, removeFriend })(Bio);

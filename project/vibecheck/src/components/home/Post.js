@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const formateDate = (dateStr) => {
   const months = [
@@ -40,7 +41,9 @@ const Post = (props) => {
         </div>
         <div className="column">
           <div className="post-display-name">
-            {props.post.profile.display_name}
+            <Link to={`/profile/${props.post.profile.id}/`}>
+              {props.post.profile.display_name}
+            </Link>
           </div>
           <div className="post-date">{formateDate(props.post.date)}</div>
           <div className="post-content">{props.post.content}</div>

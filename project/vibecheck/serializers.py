@@ -29,10 +29,22 @@ class LoginSerializer(serializers.Serializer):
         raise serializers.ValidationError("Invalid Credentials")
 
 
+# TODO figure out how to inline this
+class PostProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ('__all__')
+
+
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ('__all__')
+
+    def to_representation(self, instance):
+        response = super().to_representation(instance)
+        response['profile'] = PostProfileSerializer(instance.profile).data
+        return response
 
 
 class ProfileSerializer(serializers.ModelSerializer):

@@ -35,7 +35,7 @@ class Spotify extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  profile: state.auth.user.profile,
+  profile: state.profiles.profile,
 });
 
 export default connect(mapStateToProps)(Spotify);

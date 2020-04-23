@@ -6,7 +6,6 @@ import Post from "../home/Post";
 
 class Posts extends Component {
   static propTypes = {
-    posts: PropTypes.array.isRequired,
     profile: PropTypes.object.isRequired,
   };
 
@@ -18,7 +17,7 @@ class Posts extends Component {
           <input type="search" />
         </div>
         <div className="posts">
-          {this.props.posts.map((post) => {
+          {this.props.profile.posts.map((post) => {
             post.profile = this.props.profile;
             return <Post post={post} />;
           })}
@@ -29,8 +28,7 @@ class Posts extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  posts: state.auth.user.profile.posts,
-  profile: state.auth.user.profile,
+  profile: state.profiles.profile,
 });
 
 export default connect(mapStateToProps)(Posts);

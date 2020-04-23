@@ -33,6 +33,7 @@ class App extends Component {
             <PrivateRoute exact path="/feed" component={Home} />
             <PrivateRoute exact path="/profile" component={Profile} />
             <PrivateRoute exact path="/profile/edit" component={Editor} />
+            <Route exact path="/profile/:profile" component={Profile} />
             <Route exact path="/login" component={Login} />
           </Switch>
         </Router>

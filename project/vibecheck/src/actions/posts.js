@@ -9,6 +9,7 @@ export const getPosts = (user) => (dispatch) => {
       posts.push(post);
     })
   );
+  // TODO sort posts by date
   dispatch({
     type: GET_POSTS,
     payload: posts,
@@ -16,10 +17,9 @@ export const getPosts = (user) => (dispatch) => {
 };
 
 export const addPost = (post) => (dispatch) => {
-  fetch("api/posts/", {
+  fetch("/api/posts/", {
     method: "POST",
     headers: {
-      Accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify(post),

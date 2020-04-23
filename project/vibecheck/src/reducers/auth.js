@@ -8,6 +8,8 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   UPDATE_PROFILE,
+  ADD_FRIEND,
+  DELETE_FRIEND,
 } from "../actions/types";
 
 const initialState = {
@@ -58,6 +60,24 @@ export default function (state = initialState, action) {
         user: {
           ...state.user,
           profile: action.payload,
+        },
+      };
+    case ADD_FRIEND:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          friends: [...state.user.friends, action.payload],
+        },
+      };
+    case DELETE_FRIEND:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          friends: state.user.friends.filter(
+            (friend) => friend.id != action.payload.id
+          ),
         },
       };
     default:
