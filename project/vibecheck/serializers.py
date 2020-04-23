@@ -59,8 +59,8 @@ class UserSerializer(serializers.ModelSerializer):
         return response
 
     def get_friends(self, instance):
-        friendships = Friendship.objects.filter(Q(creator=instance.id) | Q(friend=instance.id))
-        return FriendshipSerializer(friendships, many=True, context={'user': instance.username}).data
+        friendships = Friendship.objects.filter(creator=instance.id)
+        return FriendshipSerializer(friendships, many=True).data
 
 
 class FriendshipSerializer(serializers.ModelSerializer):
@@ -71,6 +71,4 @@ class FriendshipSerializer(serializers.ModelSerializer):
         fields = ('__all__')
 
     def get_profile(self, instance):
-        user = instance.creator if self.context.get('user') == instance.friend.username else instance.friend
-        print(instance.creator, instance.friend, self.context.get('user'), user)
-        return ProfileSerializer(Profile.objects.filter(user=user), many=True).data[0]
+        return ProfileSerializer(Profile.objects.filter(user=instance.friend), many=True).data[0]
