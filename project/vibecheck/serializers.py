@@ -47,6 +47,13 @@ class PostSerializer(serializers.ModelSerializer):
         return response
 
 
+# TODO inline
+class _PostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = ('__all__')
+
+
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
@@ -54,7 +61,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         response = super().to_representation(instance)
-        response['posts'] = PostSerializer(instance.posts, many=True).data
+        response['posts'] = _PostSerializer(instance.posts, many=True).data
         return response
 
 

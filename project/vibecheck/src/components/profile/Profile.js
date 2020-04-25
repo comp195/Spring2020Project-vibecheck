@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getProfile, setProfile } from "../../actions/profiles";
+import { getProfile } from "../../actions/profiles";
 import Nav from "../layout/Nav";
 import Bio from "./Bio";
 import Posts from "./Posts";
@@ -20,7 +20,7 @@ class Profile extends Component {
     if (this.props.match.params.profile) {
       this.props.getProfile(this.props.match.params.profile);
     } else if (this.props.user) {
-      this.props.setProfile(this.props.user.profile);
+      this.props.getProfile(this.props.user.profile.id);
     }
   }
 
@@ -59,4 +59,4 @@ const mapStateToProps = (state) => ({
   profile: state.profiles.profile,
 });
 
-export default connect(mapStateToProps, { getProfile, setProfile })(Profile);
+export default connect(mapStateToProps, { getProfile })(Profile);

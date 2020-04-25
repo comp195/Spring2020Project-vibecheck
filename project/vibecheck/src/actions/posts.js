@@ -9,7 +9,9 @@ export const getPosts = (user) => (dispatch) => {
       posts.push(post);
     })
   );
-  // TODO sort posts by date
+  posts.sort((p1, p2) => {
+    return new Date(p2.date) - new Date(p1.date);
+  });
   dispatch({
     type: GET_POSTS,
     payload: posts,

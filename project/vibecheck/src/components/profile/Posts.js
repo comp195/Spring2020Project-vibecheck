@@ -17,10 +17,14 @@ class Posts extends Component {
           <input type="search" />
         </div>
         <div className="posts">
-          {this.props.profile.posts.map((post) => {
-            post.profile = this.props.profile;
-            return <Post post={post} />;
-          })}
+          {this.props.profile.posts
+            .sort((p1, p2) => {
+              return new Date(p2.date) - new Date(p1.date);
+            })
+            .map((post) => {
+              post.profile = this.props.profile;
+              return <Post post={post} />;
+            })}
         </div>
       </Fragment>
     );

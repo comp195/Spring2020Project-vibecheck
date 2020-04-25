@@ -75,6 +75,12 @@ export default function (state = initialState, action) {
         ...state,
         user: {
           ...state.user,
+          profile: {
+            ...state.user.profile,
+            posts: state.user.profile.posts.filter(
+              (post) => post.profile.id != action.payload.profile.id
+            ),
+          },
           friends: state.user.friends.filter(
             (friend) => friend.id != action.payload.id
           ),

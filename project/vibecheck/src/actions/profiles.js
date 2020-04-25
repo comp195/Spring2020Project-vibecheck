@@ -34,10 +34,3 @@ export const updateProfile = (profile) => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
-
-export const setProfile = (profile) => (dispatch) => {
-  dispatch({
-    type: GET_PROFILE,
-    payload: profile,
-  });
-};

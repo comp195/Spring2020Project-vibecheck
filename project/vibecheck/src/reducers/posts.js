@@ -19,19 +19,26 @@ export default (state = initialState, action) => {
     case ADD_POST:
       return {
         ...state,
-        posts: [...state.posts, action.payload],
+        posts: [action.payload, ...state.posts],
       };
     case ADD_FRIEND:
       return {
         ...state,
-        posts: [...state.posts, ...action.payload.profile.posts],
+        posts: [...state.posts, ...action.payload.profile.posts].sort(
+          (p1, p2) => {
+            return new Date(p2.date) - new Date(p1.date);
+          }
+        ),
       };
     case DELETE_FRIEND:
+      let posts = state.posts
+        .filter((post) => post.profile.id != action.payload.profile.id)
+        .sort((p1, p2) => {
+          return new Date(p2.date) - new Date(p1.date);
+        });
       return {
         ...state,
-        posts: state.posts.filter(
-          (post) => post.profile != action.payload.profile.id
-        ),
+        posts: posts,
       };
     default:
       return state;
