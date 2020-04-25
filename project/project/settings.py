@@ -25,7 +25,7 @@ SECRET_KEY = '*!yj1z)0-=-=a6#rrv9oq(vul_w+5h85pxq7+9za_zds7*%rv_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '50.112.22.16']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'vibecheck.site', '52.13.198.30']
 
 
 # Application definition
