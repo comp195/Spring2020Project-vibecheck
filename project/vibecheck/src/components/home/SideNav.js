@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class SideNav extends Component {
+  static propTypes = {
+    profile: PropTypes.object.isRequired,
+  };
+
   render() {
     return (
       <div className="side-nav">
@@ -9,7 +15,7 @@ class SideNav extends Component {
         <div className="side-nav-links">
           <ul>
             <li>
-              <Link to="/profile">
+              <Link to={`/${this.props.profile.username}`}>
                 <i className="fas fa-user"></i> Profile
               </Link>
             </li>
@@ -32,4 +38,8 @@ class SideNav extends Component {
   }
 }
 
-export default SideNav;
+const mapStateToProps = (state) => ({
+  profile: state.auth.user.profile,
+});
+
+export default connect(mapStateToProps)(SideNav);

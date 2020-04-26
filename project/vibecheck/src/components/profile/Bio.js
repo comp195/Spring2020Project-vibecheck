@@ -94,7 +94,7 @@ class Bio extends Component {
     let isFollowing = this.isFollowing();
     let editProfile = (
       <div className="row edit">
-        <Link to="/profile/edit">Edit Profile</Link>
+        <Link to={`/${profile.username}/edit/`}>Edit Profile</Link>
       </div>
     );
     let followProfile = (

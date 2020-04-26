@@ -35,7 +35,7 @@ const formateDate = (dateStr) => {
 
 const hyperlinkMentions = (content) => {
   return content.replace(/\B\@([\w\-]+)/gim, (match, username) => {
-    return `<a class="mention" href="/profile/${username}">${match}</a>`;
+    return `<a class="mention" href="/${username}">${match}</a>`;
   });
 };
 
@@ -48,7 +48,7 @@ const Post = (props) => {
         </div>
         <div className="column">
           <div className="post-name">
-            <Link to={`/profile/${props.post.profile.username}/`}>
+            <Link to={`/${props.post.profile.username}`}>
               <span className="post-display-name">
                 {props.post.profile.display_name}
               </span>

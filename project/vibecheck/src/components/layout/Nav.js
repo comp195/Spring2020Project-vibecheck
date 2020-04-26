@@ -17,12 +17,12 @@ class Nav extends Component {
       <div className="icons">
         <ul>
           <li>
-            <Link to="/profile">
+            <Link to={`/${this.props.auth.user.profile.username}`}>
               <i className="fas fa-user" />
             </Link>
           </li>
           <li>
-            <Link to="/feed">
+            <Link to="/home">
               <i className="fas fa-home" />
             </Link>
           </li>

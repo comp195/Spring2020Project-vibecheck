@@ -21,7 +21,7 @@ class Editor extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.props.updateProfile(this.state.profile);
-    this.props.history.push("/profile");
+    this.props.history.push(`/${this.state.profile.username}`);
     // TODO update auth user profile
     // TODO don't submit changes if there are none
   };
