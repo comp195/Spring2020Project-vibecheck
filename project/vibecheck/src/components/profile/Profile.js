@@ -22,7 +22,6 @@ class Profile extends Component {
     } else if (this.props.user) {
       this.props.getProfile(this.props.user.profile.username);
     }
-    document.title = `${this.props.profile.display_name} (@${this.props.profile.username}) - VibeCheck`;
   }
 
   render() {
@@ -36,6 +35,7 @@ class Profile extends Component {
         </Fragment>
       );
     }
+    document.title = `${this.props.profile.display_name} (@${this.props.profile.username}) - VibeCheck`;
     return (
       <Fragment>
         <Nav />

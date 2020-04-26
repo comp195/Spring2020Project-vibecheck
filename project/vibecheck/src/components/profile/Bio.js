@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addFriend, removeFriend } from "../../actions/friends";
@@ -73,7 +74,11 @@ class Bio extends Component {
   };
 
   onFollow = () => {
-    this.props.addFriend(this.props.user.id, this.props.profile.user);
+    if (!this.props.user) {
+      this.props.history.push("/login");
+    } else {
+      this.props.addFriend(this.props.user.id, this.props.profile.user);
+    }
   };
 
   onUnfollow = () => {
@@ -142,4 +147,6 @@ const mapStateToProps = (state) => ({
   profile: state.profiles.profile,
 });
 
-export default connect(mapStateToProps, { addFriend, removeFriend })(Bio);
+export default connect(mapStateToProps, { addFriend, removeFriend })(
+  withRouter(Bio)
+);

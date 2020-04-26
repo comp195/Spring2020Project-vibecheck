@@ -30,10 +30,10 @@ class App extends Component {
             <Route exact path="/">
               <Redirect to="/home" />
             </Route>
+            <Route exact path="/login" component={Login} />
             <PrivateRoute exact path="/home" component={Home} />
             <PrivateRoute exact path="/:profile/edit" component={Editor} />
             <Route exact path="/:profile" component={Profile} />
-            <Route exact path="/login" component={Login} />
           </Switch>
         </Router>
       </Provider>
