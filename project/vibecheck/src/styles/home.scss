@@ -193,6 +193,11 @@ div .home-container {
       padding-top: 5px;
       font-size: 1em;
     }
+
+    .mention {
+      text-decoration: none;
+      color: $primary-color;
+    }
   }
 
   div .recommendations {

@@ -1,21 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
 const formateDate = (dateStr) => {
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
   let date = new Date(dateStr);
   let diff = Date.now() - date.getTime();
   let seconds = (diff / 1000).toFixed(1);
@@ -32,6 +33,12 @@ const formateDate = (dateStr) => {
   }
 };
 
+const hyperlinkMentions = (content) => {
+  return content.replace(/\B\@([\w\-]+)/gim, (match, username) => {
+    return `<a class="mention" href="/profile/${username}">${match}</a>`;
+  });
+};
+
 const Post = (props) => {
   return (
     <div className="post">
@@ -46,7 +53,12 @@ const Post = (props) => {
             </Link>
           </div>
           <div className="post-date">{formateDate(props.post.date)}</div>
-          <div className="post-content">{props.post.content}</div>
+          <div
+            className="post-content"
+            dangerouslySetInnerHTML={{
+              __html: hyperlinkMentions(props.post.content),
+            }}
+          ></div>
         </div>
       </div>
     </div>
