@@ -22,7 +22,6 @@ class Home extends Component {
             </div>
             <div className="column">
               <Recommendations />
-              <Trends />
             </div>
           </div>
         </div>
