@@ -11,8 +11,6 @@ import "./../../styles/login.scss";
 class Login extends Component {
   state = {
     registration: {
-      first: "",
-      last: "",
       username: "",
       email: "",
       password: "",
@@ -40,8 +38,6 @@ class Login extends Component {
       username: this.state.registration.username,
       email: this.state.registration.email,
       password: this.state.registration.password,
-      first_name: this.state.registration.first,
-      last_name: this.state.registration.last,
     };
     this.props.register(user);
   };
@@ -75,38 +71,6 @@ class Login extends Component {
               <div className="signup">
                 <h1>Sign Up</h1>
                 <form onSubmit={this.onSignUpSubmit}>
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="First Name"
-                      required
-                      value={this.state.registration.first}
-                      onChange={(e) => {
-                        this.setState({
-                          registration: {
-                            ...this.state.registration,
-                            first: e.target.value,
-                          },
-                        });
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Last Name"
-                      required
-                      value={this.state.registration.last}
-                      onChange={(e) => {
-                        this.setState({
-                          registration: {
-                            ...this.state.registration,
-                            last: e.target.value,
-                          },
-                        });
-                      }}
-                    />
-                  </div>
                   <div>
                     <input
                       type="text"
