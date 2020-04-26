@@ -47,9 +47,14 @@ const Post = (props) => {
           <img src={props.post.profile.avatar_url} alt="avatar" />
         </div>
         <div className="column">
-          <div className="post-display-name">
-            <Link to={`/profile/${props.post.profile.id}/`}>
-              {props.post.profile.display_name}
+          <div className="post-name">
+            <Link to={`/profile/${props.post.profile.username}/`}>
+              <span className="post-display-name">
+                {props.post.profile.display_name}
+              </span>
+              <span className="post-username">
+                @{props.post.profile.username}
+              </span>
             </Link>
           </div>
           <div className="post-date">{formateDate(props.post.date)}</div>

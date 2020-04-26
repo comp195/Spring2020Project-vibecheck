@@ -163,12 +163,25 @@ div .profile-container {
       }
     }
 
-    .post-display-name {
-      font-weight: bold;
-
+    .post-name {
       a {
-        color: $text-color;
         text-decoration: none;
+        color: $text-color;
+
+        &:hover .post-display-name {
+          text-decoration: underline;
+        }
+
+        .post-display-name {
+          font-weight: bold;
+          padding-right: 3px;
+        }
+
+        .post-username {
+          color: #666;
+          font-size: 0.85em;
+          text-decoration: none !important;
+        }
       }
     }
 
