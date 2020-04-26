@@ -8,6 +8,10 @@ import Trends from "./Trends";
 import "./../../styles/home.scss";
 
 class Home extends Component {
+  componentDidMount() {
+    document.title = `Home - VibeCheck`;
+  }
+
   render() {
     return (
       <Fragment>

@@ -22,6 +22,7 @@ class Profile extends Component {
     } else if (this.props.user) {
       this.props.getProfile(this.props.user.profile.username);
     }
+    document.title = `${this.props.user.profile.display_name} (@${this.props.user.profile.username}) - VibeCheck`;
   }
 
   render() {

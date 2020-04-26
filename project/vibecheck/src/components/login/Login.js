@@ -58,6 +58,10 @@ class Login extends Component {
     });
   };
 
+  componentDidMount() {
+    document.title = `VibeCheck`;
+  }
+
   render() {
     if (this.props.isAuthenticated) {
       return <Redirect to="/" />;
