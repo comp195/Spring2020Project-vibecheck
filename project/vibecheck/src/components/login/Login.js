@@ -185,9 +185,6 @@ class Login extends Component {
                   <div>
                     <input type="submit" value="Login" />
                   </div>
-                  <div>
-                    <a href="#">Lost password?</a>
-                  </div>
                 </form>
               </div>
             </div>
