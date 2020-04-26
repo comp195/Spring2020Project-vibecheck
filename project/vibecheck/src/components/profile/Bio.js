@@ -115,6 +115,7 @@ class Bio extends Component {
           <img src={profile.avatar_url} alt="avatar" />
         </div>
         <div className="row name">{profile.display_name}</div>
+        <div className="row username">@{profile.username}</div>
         {isOwner ? editProfile : isFollowing ? unfollowProfile : followProfile}
         <div className="row description">
           <div className="column">{profile.description}</div>

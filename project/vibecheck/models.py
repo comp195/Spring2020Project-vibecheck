@@ -6,6 +6,7 @@ from django.utils import timezone
 class Profile(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, related_name="profile", on_delete=models.CASCADE)
+    username = models.CharField(max_length=50, unique=True)
     display_name = models.CharField(max_length=50)
     avatar_url = models.TextField(default="/static/vibecheck/img/default-avatar.png")
     join_date = models.DateTimeField(auto_now_add=True)

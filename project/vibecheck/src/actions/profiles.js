@@ -1,7 +1,7 @@
 import { GET_PROFILE, UPDATE_PROFILE } from "./types";
 
-export const getProfile = (id) => (dispatch) => {
-  fetch(`/api/profiles/${id}/`)
+export const getProfile = (username) => (dispatch) => {
+  fetch(`/api/profiles/${username}/`)
     .then((response) => {
       return response.json();
     })

@@ -50,6 +50,7 @@ class UserView(generics.RetrieveAPIView):
 class ProfileView(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    lookup_field = 'username'
 
 
 class PostView(viewsets.ModelViewSet):

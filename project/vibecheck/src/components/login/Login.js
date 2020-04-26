@@ -13,6 +13,7 @@ class Login extends Component {
     registration: {
       first: "",
       last: "",
+      username: "",
       email: "",
       password: "",
       confirm: "",
@@ -36,7 +37,7 @@ class Login extends Component {
       return;
     }
     const user = {
-      username: this.state.registration.email,
+      username: this.state.registration.username,
       email: this.state.registration.email,
       password: this.state.registration.password,
       first_name: this.state.registration.first,
@@ -101,6 +102,22 @@ class Login extends Component {
                           registration: {
                             ...this.state.registration,
                             last: e.target.value,
+                          },
+                        });
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      required
+                      value={this.state.registration.username}
+                      onChange={(e) => {
+                        this.setState({
+                          registration: {
+                            ...this.state.registration,
+                            username: e.target.value,
                           },
                         });
                       }}

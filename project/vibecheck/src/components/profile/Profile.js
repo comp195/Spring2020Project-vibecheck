@@ -20,7 +20,7 @@ class Profile extends Component {
     if (this.props.match.params.profile) {
       this.props.getProfile(this.props.match.params.profile);
     } else if (this.props.user) {
-      this.props.getProfile(this.props.user.profile.id);
+      this.props.getProfile(this.props.user.profile.username);
     }
   }
 

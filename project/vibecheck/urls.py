@@ -5,7 +5,7 @@ from knox import views as knox_views
 
 router = routers.DefaultRouter()
 # router.register('users', views.UserView)
-router.register('profiles', views.ProfileView)
+router.register('profiles', views.ProfileView, basename='Profile')
 router.register('posts', views.PostView)
 router.register('friendships', views.FriendshipView)
 

@@ -21,6 +21,7 @@ div .profile-container {
 
     .avatar,
     .name,
+    .username,
     .description,
     .birthday,
     .location,
@@ -30,7 +31,6 @@ div .profile-container {
     }
 
     .avatar,
-    .name,
     .description,
     .joined {
       margin-bottom: 1em;
@@ -59,7 +59,13 @@ div .profile-container {
 
     .name {
       font-weight: bold;
-      margin-bottom: 0;
+      margin-bottom: 0.1em;
+    }
+
+    .username {
+      font-size: smaller;
+      color: #333;
+      margin-bottom: 0.1em;
     }
   }
 
