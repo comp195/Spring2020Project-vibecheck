@@ -8,6 +8,7 @@ VibeCheck is a new web social media platform. Users will be able to sign up free
 ## Components
 - **Front End**
   - React
+  - Redux
 - **Back End**
   - Django
   - PostgreSQL
