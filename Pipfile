@@ -10,6 +10,7 @@ django = "*"
 psycopg2 = "*"
 djangorestframework = "*"
 django-rest-knox = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
