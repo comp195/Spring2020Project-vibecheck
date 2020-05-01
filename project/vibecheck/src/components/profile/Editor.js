@@ -158,7 +158,24 @@ class Editor extends Component {
                   <div className="column label">Background Color</div>
                   <div className="column">
                     <input
+                      className="color-input"
                       type="color"
+                      value={this.state.bgColor}
+                      onChange={(e) => {
+                        this.setState({
+                          profile: {
+                            ...this.state.profile,
+                            colors: `${e.target.value},${this.state.accentColor},${this.state.primaryColor},${this.state.secondaryColor}`,
+                          },
+                          bgColor: e.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+                  <div className="column">
+                    <input
+                      className="color-input"
+                      type="text"
                       value={this.state.bgColor}
                       onChange={(e) => {
                         this.setState({
@@ -176,7 +193,24 @@ class Editor extends Component {
                   <div className="column label">Accent Color</div>
                   <div className="column">
                     <input
+                      className="color-input"
                       type="color"
+                      value={this.state.accentColor}
+                      onChange={(e) => {
+                        this.setState({
+                          profile: {
+                            ...this.state.profile,
+                            colors: `${this.state.bgColor},${e.target.value},${this.state.primaryColor},${this.state.secondaryColor}`,
+                          },
+                          accentColor: e.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+                  <div className="column">
+                    <input
+                      className="color-input"
+                      type="text"
                       value={this.state.accentColor}
                       onChange={(e) => {
                         this.setState({
@@ -194,7 +228,24 @@ class Editor extends Component {
                   <div className="column label">Primary Text Color</div>
                   <div className="column">
                     <input
+                      className="color-input"
                       type="color"
+                      value={this.state.primaryColor}
+                      onChange={(e) => {
+                        this.setState({
+                          profile: {
+                            ...this.state.profile,
+                            colors: `${this.state.bgColor},${this.state.accentColor},${e.target.value},${this.state.secondaryColor}`,
+                          },
+                          primaryColor: e.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+                  <div className="column">
+                    <input
+                      className="color-input"
+                      type="text"
                       value={this.state.primaryColor}
                       onChange={(e) => {
                         this.setState({
@@ -212,7 +263,24 @@ class Editor extends Component {
                   <div className="column label">Secondary Text Color</div>
                   <div className="column">
                     <input
+                      className="color-input"
                       type="color"
+                      value={this.state.secondaryColor}
+                      onChange={(e) => {
+                        this.setState({
+                          profile: {
+                            ...this.state.profile,
+                            colors: `${this.state.bgColor},${this.state.accentColor},${this.state.primaryColor},${e.target.value}`,
+                          },
+                          secondaryColor: e.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+                  <div className="column">
+                    <input
+                      className="color-input"
+                      type="text"
                       value={this.state.secondaryColor}
                       onChange={(e) => {
                         this.setState({
