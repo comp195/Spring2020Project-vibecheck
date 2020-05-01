@@ -18,9 +18,7 @@ class Home extends Component {
         <Nav />
         <div className="home-container">
           <div className="row">
-            <div className="column">
-              <SideNav />
-            </div>
+            <div className="column"></div>
             <div className="column">
               <Feed />
             </div>

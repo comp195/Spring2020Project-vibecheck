@@ -57,6 +57,11 @@ div .home-container {
 
   div .side-nav {
     margin-top: 3em;
+    min-width: 200px;
+
+    h2 {
+      color: $text-color;
+    }
   }
 
   div .side-nav-links {
@@ -96,6 +101,7 @@ div .home-container {
 
   div .feed {
     min-width: 500px;
+    width: 600px;
   }
 
   div .new-post {
@@ -225,9 +231,10 @@ div .home-container {
     }
 
     .post-media {
+      align-self: flex-start;
       max-width: 100%;
       max-height: 300px;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 
