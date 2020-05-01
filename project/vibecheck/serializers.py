@@ -28,6 +28,12 @@ class LoginSerializer(serializers.Serializer):
         raise serializers.ValidationError("Invalid Credentials")
 
 
+class FollowRecommendationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ('username', 'display_name', 'avatar_url')
+
+
 # TODO figure out how to inline this
 class PostProfileSerializer(serializers.ModelSerializer):
     class Meta:

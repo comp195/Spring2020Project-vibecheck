@@ -12,3 +12,4 @@ export const UPDATE_PROFILE = "UPDATE_PROFILE";
 export const GET_PROFILE = "GET_PROFILE";
 export const ADD_FRIEND = "ADD_FRIEND";
 export const DELETE_FRIEND = "DELETE_FRIEND";
+export const GET_RECOMMENDED = "GET_RECOMMENDED";

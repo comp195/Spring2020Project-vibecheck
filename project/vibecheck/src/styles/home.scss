@@ -253,6 +253,36 @@ div .home-container {
       padding: 0.3em 0;
     }
 
+    .profile {
+      img {
+        max-width: 36px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        margin-right: 12px;
+      }
+
+      a {
+        text-decoration: none;
+        color: $text-color;
+
+        &:hover .display-name {
+          text-decoration: underline;
+        }
+
+        .display-name {
+          font-size: 0.85em;
+          font-weight: bold;
+        }
+
+        .username {
+          color: #666;
+          font-size: 0.65em;
+          text-decoration: none !important;
+        }
+      }
+    }
+
     i {
       padding-right: 1em;
     }

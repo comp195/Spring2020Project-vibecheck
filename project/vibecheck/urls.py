@@ -10,6 +10,7 @@ router = routers.DefaultRouter()
 router.register('profiles', views.ProfileView, basename='Profile')
 router.register('posts', views.PostView)
 router.register('friendships', views.FriendshipView)
+router.register('recommended', views.FollowRecommendationView)
 
 urlpatterns = [
     path('api/', include(router.urls)),
