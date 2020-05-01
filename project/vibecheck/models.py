@@ -20,10 +20,8 @@ class Post(models.Model):
     id = models.AutoField(primary_key=True)
     profile = models.ForeignKey(Profile, related_name="posts", on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
-    title = models.CharField(max_length=100, null=True)
     content = models.TextField(null=True)
-    multi_media = models.TextField(null=True)
-    tags = models.TextField(null=True)
+    image = models.ImageField(null=True)
 
 
 class Friendship(models.Model):

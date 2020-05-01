@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from rest_framework import viewsets, generics, permissions, response
+from rest_framework import viewsets, generics, permissions, response, parsers
 from .models import User, Profile, Post, Friendship
+from .parsers import MultiPartJsonParser
 from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, ProfileSerializer, PostSerializer, FriendshipSerializer
 from knox.models import AuthToken
+
 
 
 def index(request):
@@ -56,6 +58,7 @@ class ProfileView(viewsets.ModelViewSet):
 class PostView(viewsets.ModelViewSet):
     queryset = Post.objects.all().order_by('-date')
     serializer_class = PostSerializer
+    parser_classes = (MultiPartJsonParser, parsers.JSONParser)
 
 
 class FriendshipView(viewsets.ModelViewSet):

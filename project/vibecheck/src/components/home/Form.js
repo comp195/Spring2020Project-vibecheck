@@ -6,6 +6,8 @@ import { addPost } from "../../actions/posts";
 class Form extends Component {
   state = {
     content: "",
+    file: "",
+    filename: "",
   };
 
   static propTypes = {
@@ -19,21 +21,41 @@ class Form extends Component {
     });
   };
 
+  onFileUpload = (e) => {
+    let file = e.target.files[0];
+    let name = file.name;
+    if (name.length > 15) {
+      name =
+        name.substring(0, 7) +
+        "... " +
+        name.substring(name.lastIndexOf(".") - 4);
+    }
+    this.setState({
+      file: file,
+      filename: name,
+    });
+    e.target.value = "";
+  };
+
   onSubmit = (e) => {
     e.preventDefault();
-    const { content } = this.state;
+    const { content, file } = this.state;
+    if (!content && !file) {
+      return;
+    }
     const post = {
       profile: this.props.profile.id,
       content: content,
     };
-    this.props.addPost(post);
+    this.props.addPost(post, file);
     this.setState({
       content: "",
+      file: "",
+      filename: "",
     });
   };
 
   render() {
-    const content = this.state.content;
     return (
       <div className="new-post">
         <form onSubmit={this.onSubmit}>
@@ -44,12 +66,22 @@ class Form extends Component {
             <div className="column">
               <textarea
                 placeholder="Vibing?"
-                value={content}
+                value={this.state.content}
                 onChange={this.onChange}
               ></textarea>
             </div>
             <div className="row">
-              <div className="multi-media column"></div>
+              <div className="multi-media column">
+                <label className="file-upload">
+                  <input
+                    type="file"
+                    accept="image/png, image/jpeg, image/gif"
+                    onChange={this.onFileUpload}
+                  />
+                  <i className="fas fa-image"></i>
+                  <span>{this.state.filename}</span>
+                </label>
+              </div>
               <div className="column">
                 <button type="submit">
                   <i className="fas fa-check"></i>

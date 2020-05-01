@@ -34,9 +34,18 @@ const formateDate = (dateStr) => {
 };
 
 const hyperlinkMentions = (content) => {
-  return content.replace(/\B\@([\w\-]+)/gim, (match, username) => {
-    return `<a class="mention" href="/${username}">${match}</a>`;
-  });
+  if (content) {
+    content = content.replace(/\B\@([\w\-]+)/gim, (match, username) => {
+      return `<a class="mention" href="/${username}">${match}</a>`;
+    });
+  }
+  return content;
+};
+
+const image = (src) => {
+  if (src) {
+    return <img className="post-media" src={src}></img>;
+  }
 };
 
 const Post = (props) => {
@@ -64,6 +73,7 @@ const Post = (props) => {
               __html: hyperlinkMentions(props.post.content),
             }}
           ></div>
+          {image(props.post.image)}
         </div>
       </div>
     </div>

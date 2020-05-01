@@ -18,13 +18,13 @@ export const getPosts = (user) => (dispatch) => {
   });
 };
 
-export const addPost = (post) => (dispatch) => {
+export const addPost = (post, image = null) => (dispatch) => {
+  const data = new FormData();
+  data.append("image", image);
+  data.append("data", JSON.stringify(post));
   fetch("/api/posts/", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(post),
+    body: data,
   })
     .then((response) => {
       return response.json();
