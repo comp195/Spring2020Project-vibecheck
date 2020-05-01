@@ -59,40 +59,46 @@ export const login = ({ username, password }) => (dispatch) => {
       console.log(err);
       dispatch({
         type: LOGIN_FAIL,
+        payload: err.message,
       });
     });
 };
 
-export const register = ({
-  username,
-  email,
-  password,
-  first_name,
-  last_name,
-}) => (dispatch) => {
+export const register = ({ username, email, password, confirm }) => (
+  dispatch
+) => {
+  if (password !== confirm) {
+    dispatch({
+      type: REGISTER_FAIL,
+      payload: "Passwords Do Not Match",
+    });
+    return;
+  }
   fetch("/api/auth/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ username, email, password, first_name, last_name }),
+    body: JSON.stringify({ username, email, password }),
   })
     .then((response) => {
-      if (response.status != 200) {
-        throw new Error(response.statusText);
-      }
       return response.json();
     })
     .then((user) => {
-      dispatch({
-        type: REGISTER_SUCCESS,
-        payload: user,
-      });
+      if (Object.keys(user).length > 1) {
+        dispatch({
+          type: REGISTER_SUCCESS,
+          payload: user,
+        });
+      } else {
+        throw new Error(user[0]);
+      }
     })
     .catch((err) => {
       console.log(err);
       dispatch({
         type: REGISTER_FAIL,
+        payload: err.message,
       });
     });
 };

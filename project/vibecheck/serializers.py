@@ -12,9 +12,16 @@ class RegisterSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
-        user = User.objects.create_user(validated_data['email'], validated_data['email'], validated_data['password'])
-        profile = Profile.objects.create(user=user, username=validated_data['username'], display_name=validated_data['username'])
-        return user
+        user_count = User.objects.filter(username=validated_data['email']).count()
+        profile_count = Profile.objects.filter(username=validated_data['username']).count()
+        if user_count == 0 and profile_count == 0:
+            user = User.objects.create_user(validated_data['email'], validated_data['email'], validated_data['password'])
+            profile = Profile.objects.create(user=user, username=validated_data['username'], display_name=validated_data['username'])
+            return user
+        if user_count != 0:
+            raise serializers.ValidationError("User Already Exists")
+        if profile_count != 0:
+            raise serializers.ValidationError("Username Already Exists")
 
 
 class LoginSerializer(serializers.Serializer):

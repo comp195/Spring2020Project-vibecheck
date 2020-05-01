@@ -20,24 +20,22 @@ class Login extends Component {
       email: "",
       password: "",
     },
+    error: "",
   };
 
   static propTypes = {
     register: PropTypes.func.isRequired,
     login: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool,
+    auth: PropTypes.object.isRequired,
   };
 
   onSignUpSubmit = (e) => {
     e.preventDefault();
-    if (this.state.registration.password !== this.state.registration.confirm) {
-      console.log("passwords do not match");
-      return;
-    }
     const user = {
       username: this.state.registration.username,
       email: this.state.registration.email,
       password: this.state.registration.password,
+      confirm: this.state.registration.confirm,
     };
     this.props.register(user);
   };
@@ -62,8 +60,14 @@ class Login extends Component {
     document.title = `VibeCheck`;
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.auth.error !== this.props.auth.error) {
+      alert(this.props.auth.error);
+    }
+  }
+
   render() {
-    if (this.props.isAuthenticated) {
+    if (this.props.auth.isAuthenticated) {
       return <Redirect to="/" />;
     }
     return (
@@ -196,7 +200,7 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps, { register, login })(Login);
