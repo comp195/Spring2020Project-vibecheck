@@ -16,6 +16,10 @@ class Editor extends Component {
 
   state = {
     profile: this.props.profile,
+    bgColor: "#eeeeee",
+    accentColor: "#eb8f34",
+    primaryColor: "#333333",
+    secondaryColor: "#666666",
   };
 
   onSubmit = (e) => {
@@ -25,6 +29,18 @@ class Editor extends Component {
     // TODO update auth user profile
     // TODO don't submit changes if there are none
   };
+
+  componentDidMount() {
+    let colors = this.state.profile.colors.split(",", 4);
+    if (colors.length == 4) {
+      this.setState({
+        bgColor: colors[0],
+        accentColor: colors[1],
+        primaryColor: colors[2],
+        secondaryColor: colors[3],
+      });
+    }
+  }
 
   render() {
     return (
@@ -133,6 +149,78 @@ class Editor extends Component {
                             ...this.state.profile,
                             spotify_uri: e.target.value,
                           },
+                        });
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="column label">Background Color</div>
+                  <div className="column">
+                    <input
+                      type="color"
+                      value={this.state.bgColor}
+                      onChange={(e) => {
+                        this.setState({
+                          profile: {
+                            ...this.state.profile,
+                            colors: `${e.target.value},${this.state.accentColor},${this.state.primaryColor},${this.state.secondaryColor}`,
+                          },
+                          bgColor: e.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="column label">Accent Color</div>
+                  <div className="column">
+                    <input
+                      type="color"
+                      value={this.state.accentColor}
+                      onChange={(e) => {
+                        this.setState({
+                          profile: {
+                            ...this.state.profile,
+                            colors: `${this.state.bgColor},${e.target.value},${this.state.primaryColor},${this.state.secondaryColor}`,
+                          },
+                          accentColor: e.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="column label">Primary Text Color</div>
+                  <div className="column">
+                    <input
+                      type="color"
+                      value={this.state.primaryColor}
+                      onChange={(e) => {
+                        this.setState({
+                          profile: {
+                            ...this.state.profile,
+                            colors: `${this.state.bgColor},${this.state.accentColor},${e.target.value},${this.state.secondaryColor}`,
+                          },
+                          primaryColor: e.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="column label">Secondary Text Color</div>
+                  <div className="column">
+                    <input
+                      type="color"
+                      value={this.state.secondaryColor}
+                      onChange={(e) => {
+                        this.setState({
+                          profile: {
+                            ...this.state.profile,
+                            colors: `${this.state.bgColor},${this.state.accentColor},${this.state.primaryColor},${e.target.value}`,
+                          },
+                          secondaryColor: e.target.value,
                         });
                       }}
                     />

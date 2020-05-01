@@ -14,6 +14,7 @@ class Profile(models.Model):
     birthday = models.DateField(default=timezone.now)
     location = models.CharField(max_length=150, blank=True)
     spotify_uri = models.TextField(default="spotify:playlist:37i9dQZF1DWYBO1MoTDhZI")
+    colors = models.CharField(max_length=200, blank=True)
 
 
 class Post(models.Model):

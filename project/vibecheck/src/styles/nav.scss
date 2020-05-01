@@ -15,9 +15,14 @@ nav {
     padding-left: 10px;
     align-self: flex-start;
 
-    img {
+    svg {
       height: 50px;
+      width: 100%;
       padding-top: 5px;
+
+      g {
+        fill: $text-color;
+      }
     }
   }
 
