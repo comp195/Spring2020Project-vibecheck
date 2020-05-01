@@ -16,7 +16,7 @@ export const getProfile = (username) => (dispatch) => {
 
 export const updateProfile = (profile) => (dispatch) => {
   delete profile.posts;
-  fetch(`/api/profiles/${profile.id}/`, {
+  fetch(`/api/profiles/${profile.username}/`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
