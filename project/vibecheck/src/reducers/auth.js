@@ -10,6 +10,7 @@ import {
   UPDATE_PROFILE,
   ADD_FRIEND,
   DELETE_FRIEND,
+  ADD_POST,
 } from "../actions/types";
 
 const initialState = {
@@ -95,6 +96,17 @@ export default function (state = initialState, action) {
           friends: state.user.friends.filter(
             (friend) => friend.id != action.payload.id
           ),
+        },
+      };
+    case ADD_POST:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          profile: {
+            ...state.user.profile,
+            posts: [action.payload, ...state.user.profile.posts],
+          },
         },
       };
     default:
