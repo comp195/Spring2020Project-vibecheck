@@ -11,16 +11,20 @@ import "./../../styles/profile.scss";
 
 class Profile extends Component {
   static propTypes = {
-    user: PropTypes.object,
     profile: PropTypes.object.isRequired,
     getProfile: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
-    if (this.props.match.params.profile) {
+    this.props.getProfile(this.props.match.params.profile);
+  }
+
+  componentDidUpdate() {
+    if (
+      Object.keys(this.props.profile).length > 0 &&
+      this.props.profile.username != this.props.match.params.profile
+    ) {
       this.props.getProfile(this.props.match.params.profile);
-    } else if (this.props.user) {
-      this.props.getProfile(this.props.user.profile.username);
     }
   }
 
@@ -56,7 +60,6 @@ class Profile extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.auth.user,
   profile: state.profiles.profile,
 });
 
