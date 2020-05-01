@@ -33,7 +33,7 @@ class Nav extends Component {
             </Link>
           </li>
           <li>
-            <Link to="#logout">
+            <Link to="/">
               <i className="fas fa-sign-out-alt" onClick={this.props.logout} />
             </Link>
           </li>
