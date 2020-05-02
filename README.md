@@ -1,4 +1,4 @@
-# VibeCheck  
+# VibeCheck [http://vibecheck.site](http://vibecheck.site)  
 Devin French (d_french3@u.pacific.edu)  
 Seth Kith (s_kith@u.pacific.edu)
 
