@@ -6,7 +6,9 @@ export const getPosts = (user) => (dispatch) => {
   user.friends.forEach((friend) =>
     friend.profile.posts.forEach((post) => {
       post.profile = friend.profile;
-      posts.push(post);
+      if (!posts.includes(post)) {
+        posts.push(post);
+      }
     })
   );
   posts.sort((p1, p2) => {
